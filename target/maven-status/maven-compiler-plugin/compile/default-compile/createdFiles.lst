@@ -1,1 +1,10 @@
+edu/ucan/medical/model/Region.class
+edu/ucan/medical/model/Person.class
+edu/ucan/medical/model/Consultation.class
+edu/ucan/medical/model/Specialty.class
+edu/ucan/medical/model/Drug.class
 edu/ucan/medical/connection/ConnectionFactory.class
+edu/ucan/medical/model/Category.class
+edu/ucan/medical/model/ConsultationType.class
+edu/ucan/medical/filter/ConnectionFilter.class
+edu/ucan/medical/model/Doctor.class

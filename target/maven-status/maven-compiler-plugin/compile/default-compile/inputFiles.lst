@@ -1,1 +1,10 @@
+/home/tio-hecro/NetBeansProjects/medical-system/src/main/java/edu/ucan/medical/model/Specialty.java
+/home/tio-hecro/NetBeansProjects/medical-system/src/main/java/edu/ucan/medical/model/Consultation.java
+/home/tio-hecro/NetBeansProjects/medical-system/src/main/java/edu/ucan/medical/filter/ConnectionFilter.java
+/home/tio-hecro/NetBeansProjects/medical-system/src/main/java/edu/ucan/medical/model/Drug.java
 /home/tio-hecro/NetBeansProjects/medical-system/src/main/java/edu/ucan/medical/connection/ConnectionFactory.java
+/home/tio-hecro/NetBeansProjects/medical-system/src/main/java/edu/ucan/medical/model/ConsultationType.java
+/home/tio-hecro/NetBeansProjects/medical-system/src/main/java/edu/ucan/medical/model/Category.java
+/home/tio-hecro/NetBeansProjects/medical-system/src/main/java/edu/ucan/medical/model/Person.java
+/home/tio-hecro/NetBeansProjects/medical-system/src/main/java/edu/ucan/medical/model/Region.java
+/home/tio-hecro/NetBeansProjects/medical-system/src/main/java/edu/ucan/medical/model/Doctor.java
