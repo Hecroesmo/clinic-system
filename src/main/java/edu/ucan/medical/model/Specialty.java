@@ -1,9 +1,11 @@
 package edu.ucan.medical.model;
 
+import java.io.Serializable;
+
 /**
  * @author tio-hecro
  */
-public class Specialty {
+public class Specialty implements Serializable {
     private int pkSpecialty;
     private String name;
 

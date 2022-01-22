@@ -4,8 +4,8 @@
     Author     : tio-hecro
 --%>
 
-<%@page import="edu.ucan.medical.dao.SpecialtyDao"%>
-<%@page import="edu.ucan.medical.model.Specialty"%>
+<%@page import="edu.ucan.medical.dao.CategoryDao"%>
+<%@page import="edu.ucan.medical.model.Category"%>
 <%@page import="java.util.List"%>
 <%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -13,20 +13,20 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Listar Categorias</title>
     </head>
     <body>
 <%
         Connection connection = (Connection) request.getAttribute("connection");
-        List<Specialty> specialties = new SpecialtyDao(connection).getAllSpecialty();
+        List<Category> categories = new CategoryDao(connection).getAllCategories();
 %>
         <jsp:include page="../components/admin-header.jsp"></jsp:include>
         
 <%
-        if (specialties != null) {
+        if (categories != null) {
 %>
         <div style="margin-top: 1em" class="container">
-            <h1>Lista de Especialidades</h1>
+            <h1>Lista de Categorias</h1>
             <table class="table table-striped table-sm">
                 <thead>
                     <tr>
@@ -34,19 +34,17 @@
                         <th>Nome</th>
                     </tr>
                 </thead>
-                <tbody>
-                    
+                <tbody> 
 <%
-                    for (Specialty specialty : specialties) {
+                for (Category category : categories) {
 %>
-                        <tr>
-                            <td><%= specialty.getPkSpecialty() %></td>
-                            <td><%= specialty.getName() %></td>
-                        </tr>
+                    <tr>
+                        <td><%= category.getPkCategory() %></td>
+                        <td><%= category.getName() %></td>
+                    </tr>
 <%
-                    }
-%>
-                        
+                }
+%>      
                 </tbody>
             </table>
 <%

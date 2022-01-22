@@ -1,9 +1,11 @@
 package edu.ucan.medical.model;
 
+import java.io.Serializable;
+
 /**
  * @author tio-hecro
  */
-public class Person {
+public class Person implements Serializable {
     private String identifyCardNumber;
     private String firstName;
     private String lastName;

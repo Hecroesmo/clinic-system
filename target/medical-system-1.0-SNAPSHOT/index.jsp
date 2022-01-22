@@ -57,11 +57,14 @@
                           <li><a class="dropdown-item" href="doctor/list-doctor.jsp">Listar</a></li>
                       </ul>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <span data-feather="bar-chart-2"></span>
-                      Reports
-                    </a>
+                  <li class="nav-item dropdown">
+                    <span class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        Categorias
+                      </span>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonSM">
+                          <li><a class="dropdown-item" href="category/insert-category.jsp">Cadastrar</a></li>
+                          <li><a class="dropdown-item" href="category/list-categories.jsp">Listar</a></li>
+                      </ul>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">
