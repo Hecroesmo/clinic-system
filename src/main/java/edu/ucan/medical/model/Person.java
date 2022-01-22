@@ -5,7 +5,8 @@ package edu.ucan.medical.model;
  */
 public class Person {
     private String identifyCardNumber;
-    private String name;
+    private String firstName;
+    private String lastName;
     private String phoneNumber;
     private Region country;
     private Region province;
@@ -15,16 +16,17 @@ public class Person {
 
     public Person() {}
 
-    public Person(String identifyCardNumber, String name, String phoneNumber) {
+    public Person(String identifyCardNumber, String firstName, String lastName, String phoneNumber) {
         this.identifyCardNumber = identifyCardNumber;
-        this.name = name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.phoneNumber = phoneNumber;
     }
 
     public Person(String name, String phoneNumber, Region country,
         Region province, Region municipality, Region commune, Region neighborhood) 
     {
-        this.name = name;
+        this.firstName = name;
         this.phoneNumber = phoneNumber;
         this.country = country;
         this.province = province;
@@ -43,12 +45,12 @@ public class Person {
     
     
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getPhoneNumber() {
@@ -99,8 +101,20 @@ public class Person {
         this.neighborhood = neighborhood;
     }
 
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     @Override
     public String toString() {
-        return "Person{" + "identifyCardNumber=" + identifyCardNumber + ", name=" + name + ", phoneNumber=" + phoneNumber + ", country=" + country + ", province=" + province + ", municipality=" + municipality + ", commune=" + commune + ", neighborhood=" + neighborhood + '}';
+        return "Person{" + "identifyCardNumber=" + identifyCardNumber +
+            ", name=" + firstName + ", phoneNumber=" + phoneNumber +
+            ", country=" + country + ", province=" + province +
+            ", municipality=" + municipality + ", commune=" + commune +
+            ", neighborhood=" + neighborhood + '}';
     }
 }

@@ -32,6 +32,7 @@ public class Doctor extends Person {
 
     @Override
     public String toString() {
-        return "Doctor{" + "taxIdentificationNumber=" + taxIdentificationNumber + ", specialty=" + specialty + '}';
+        return "Doctor{" + "taxIdentificationNumber=" + taxIdentificationNumber +
+            ", specialty=" + specialty + '}';
     }
 }

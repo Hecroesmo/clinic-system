@@ -4,14 +4,17 @@
     Author     : tio-hecro
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
-<html>
+<html lang="pt">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Header</title>
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/headers.css">
+        <meta charset="utf-8">
+        <title>Header</title>      
+        <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
+        <link rel="stylesheet" href="<c:url value="/css/headers.css"/>">
+        <link rel="stylesheet" href="<c:url value="/css/style.css"/>">
     </head>
     <body>
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
@@ -22,13 +25,24 @@
             </a>
 
             <ul class="nav nav-pills">
-              <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-              <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+                <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+                
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false" id="region">Região</a>
+                       
+                    <ul class="dropdown-menu" aria-labelledby="region">
+                        <li><a class="dropdown-item"
+                            href="<c:url value="/region/insert.jsp"/>">Cadastrar</a></li>
+                            
+                        <li><a class="dropdown-item" href="#">Listar</a></li>
+                    </ul>
+                </li>
               <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
               <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
               <li class="nav-item"><a href="#" class="nav-link">About</a></li>
             </ul>
         </header>
-        <script src="../js/bootstrap.bundle.js">
     </body>
 </html>

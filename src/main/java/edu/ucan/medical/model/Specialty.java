@@ -8,6 +8,10 @@ public class Specialty {
     private String name;
 
     public Specialty() {}
+    
+    public Specialty(int pkSpecialty) {
+        this.pkSpecialty = pkSpecialty;
+    }
 
     public Specialty(int pkSpecialty, String name) {
         this.pkSpecialty = pkSpecialty;

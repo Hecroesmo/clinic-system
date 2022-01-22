@@ -1,18 +1,24 @@
 package edu.ucan.medical.model;
 
+import java.io.Serializable;
+
 /**
  * @author tio-hecro
  */
-public class Region {
+public class Region implements Serializable {
     private int pkRegion;
-    private String nome;
+    private String name;
     private int fkRegion;
 
     public Region() {}
-
-    public Region(int pkRegion, String nome, int fkRegion) {
+    
+    public Region(int pkRegion) {
         this.pkRegion = pkRegion;
-        this.nome = nome;
+    }
+
+    public Region(int pkRegion, String name, int fkRegion) {
+        this.pkRegion = pkRegion;
+        this.name = name;
         this.fkRegion = fkRegion;
     }
 
@@ -24,12 +30,12 @@ public class Region {
         this.pkRegion = pkRegion;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getFkRegion() {
@@ -42,6 +48,6 @@ public class Region {
 
     @Override
     public String toString() {
-        return "Region{" + "pkRegion=" + pkRegion + ", nome=" + nome + ", fkRegion=" + fkRegion + '}';
+        return "Region{" + "pkRegion=" + pkRegion + ", nome=" + name + ", fkRegion=" + fkRegion + '}';
     }   
 }

@@ -58,8 +58,7 @@ public class Drug {
 
     @Override
     public String toString() {
-        return "Drug{" + "pkDrug=" + pkDrug + ", name=" + name + ", description=" + description + ", category=" + category + '}';
+        return "Drug{" + "pkDrug=" + pkDrug + ", name=" + name +
+            ", description=" + description + ", category=" + category + '}';
     }
-
-    
 }
