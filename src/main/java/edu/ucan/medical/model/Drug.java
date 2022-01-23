@@ -12,7 +12,11 @@ public class Drug implements Serializable {
     private Category category;
     
     public Drug() {}
-     
+    
+    public Drug(int pkDrug) {
+        this.pkDrug = pkDrug;
+    }
+    
     public Drug(int pkDrug, String name, String descrption) {
         this.pkDrug = pkDrug;
         this.name = name;

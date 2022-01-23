@@ -10,6 +10,10 @@ public class Category implements Serializable {
     private String name;
     
     public Category() {}
+    
+    public Category(int pkCategory) {
+        this.pkCategory = pkCategory;
+    }
 
     public Category(int pkCategory, String name) {
         this.pkCategory = pkCategory;

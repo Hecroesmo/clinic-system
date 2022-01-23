@@ -35,6 +35,29 @@ public class CategoryDao {
         }
     }
     
+    public Category getCategoryById(int id) {
+        String sql = "SELECT * FROM category WHERE pk_category = ?";
+        
+        try 
+        {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+            
+            if (rs.next() == false) return null;
+            
+            Category category = new Category(
+                rs.getInt("pk_category"),
+                rs.getString("name")
+            );
+            
+            return category;
+        } 
+        catch (SQLException ex) {
+            throw new RuntimeException("Failed to get category by id", ex);
+        }
+    }
+    
     public List<Category> getAllCategories () {
         String sql = "SELECT * FROM category";
         

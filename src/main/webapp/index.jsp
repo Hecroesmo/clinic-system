@@ -66,11 +66,23 @@
                           <li><a class="dropdown-item" href="category/list-categories.jsp">Listar</a></li>
                       </ul>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <span data-feather="layers"></span>
-                      Integrations
-                    </a>
+                  <li class="nav-item dropdown">
+                    <span class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        Fármacos
+                      </span>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonSM">
+                          <li><a class="dropdown-item" href="drug/insert-drug.jsp">Cadastrar</a></li>
+                          <li><a class="dropdown-item" href="drug/list-drugs.jsp">Listar</a></li>
+                      </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <span class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        Paciente
+                      </span>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonSM">
+                          <li><a class="dropdown-item" href="patient/insert-patient.jsp">Cadastrar</a></li>
+                          <li><a class="dropdown-item" href="patient/list-patients.jsp">Listar</a></li>
+                      </ul>
                   </li>
                 </ul>
 
