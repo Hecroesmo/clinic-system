@@ -60,13 +60,13 @@
 
           <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
             <li>
-              <a href="index.jsp" class="nav-link text-secondary">
+                <a href="<c:url value="/index.jsp"/>" class="nav-link text-secondary">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"/></svg>
                 Home
               </a>
             </li>
             <li>
-              <a href="../index.jsp" class="nav-link text-white">
+              <a href="<c:url value="/index.jsp"/>" class="nav-link text-white">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#speedometer2"/></svg>
                 Painel de controle
               </a>

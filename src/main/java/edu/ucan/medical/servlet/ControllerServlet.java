@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.ucan.medical.servlet;
 
 import edu.ucan.medical.interface_.Logic;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.lang.reflect.InvocationTargetException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,13 +14,12 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/mvc")
 public class ControllerServlet extends HttpServlet {
-
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp)
         throws ServletException, IOException 
     {
-        String parameter = req.getParameter("logic");
-        String className = "restaurant.logic." + parameter;
+        final String parameter = req.getParameter("logic");
+        final String className = "edu.ucan.medical.logic." + parameter;
 
         try 
         {
@@ -33,13 +27,16 @@ public class ControllerServlet extends HttpServlet {
             Logic logic = (Logic) clazz.getDeclaredConstructor().newInstance();
 
             String page = logic.execute(req, resp);
+            System.out.println(page);
             req.getRequestDispatcher(page).forward(req, resp);
         } 
-        catch (Exception e) 
+        catch (
+            IOException | ClassNotFoundException | IllegalAccessException |
+            IllegalArgumentException | InstantiationException |
+            NoSuchMethodException | SecurityException |
+            InvocationTargetException | ServletException e) 
         {
-            throw new ServletException("Fail to process " + className + " logic", e);
+            throw new RuntimeException("Fail to process " + className + " logic", e);
         }
     }
-    
-
 }

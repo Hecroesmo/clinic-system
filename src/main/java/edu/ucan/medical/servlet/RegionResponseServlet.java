@@ -36,28 +36,41 @@ public class RegionResponseServlet extends HttpServlet {
 		
         Connection connection = (Connection) request.getAttribute("connection");
         
-        List<Region> region = null;
-   
-        if ("province".equals(name)) {
-            region = new RegionDao(connection).getProvincesById(id);
-        }
-        
-        else if ("municipality".equals(name)) {
-            region = new RegionDao(connection).getMunicipalitiesById(id);
-        }
-        
-        else if ("commune".equals(name)) {
-            region = new RegionDao(connection).getCommunesById(id);
-        }
-        
-        else if ("neighborhood".equals(name)) {
-            region = new RegionDao(connection).getNeighborhoodsById(id);
-        }
+        List<Region> regions = null;
+        RegionDao regionDao = new RegionDao(connection);
+        regions = findWhatRegionIsSelected(regionDao, regions, id, name);
 
         Gson gson = new Gson();
-        String RegionJson = gson.toJson(region);
+        String RegionJson = gson.toJson(regions);
 
         Writer writer = response.getWriter();
         writer.write(RegionJson);
+    }
+    
+    
+    //  support methods --------------------------------------------------------
+    
+    private List<Region> findWhatRegionIsSelected (RegionDao regionDao,
+        List<Region> regions, int id, String name) 
+    {
+        
+        if (null != name) switch (name) {
+            case "province":
+                regions = regionDao.getProvincesById(id);
+                break;
+            case "municipality":
+                regions = regionDao.getMunicipalitiesById(id);
+                break;
+            case "commune":
+                regions = regionDao.getCommunesById(id);
+                break;
+            case "neighborhood":
+                regions = regionDao.getNeighborhoodsById(id);
+                break;
+            default:
+                break;
+        }
+        
+        return regions;
     }
 }

@@ -21,24 +21,15 @@ public class RegionDao {
         this.connection = connection;
     }
     
-    public void insert(Region region) {
+    public void saveCountry(Region region) {
         boolean isCountry = region.getFkRegion() == 0;
         
-        String sql = "INSERT INTO region (name, fk_region) VALUES (?, ?)";
-        
-        if (isCountry) {
-            sql = "INSERT INTO region (name) VALUES (?)";
-        }
+        String sql = "INSERT INTO country (name) VALUES (?)";
         
         try 
         {
             statement = connection.prepareStatement(sql);
             statement.setString(1, region.getName());
-            
-            if (!isCountry) {
-                statement.setInt(2, region.getFkRegion());
-            }
-            
             statement.executeUpdate();
         } 
         catch (SQLException ex) {

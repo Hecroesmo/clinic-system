@@ -9,23 +9,26 @@
 <%@page import="java.util.List"%>
 <%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Listar Farmacos</title>
+        <title>Listar Fármacos</title>
     </head>
     <body>
+        <jsp:include page="../components/admin-header.jsp"></jsp:include>
 <%
         Connection connection = (Connection) request.getAttribute("connection");
         List<Drug> drugs = new DrugDao(connection).getAllDrugs();
-%>
-        <jsp:include page="../components/admin-header.jsp"></jsp:include>
-        
-<%
+
         if (drugs != null) {
 %>
-        <div style="margin-top: 1em" class="container">
+        <div style="margin-top: 2em" class="container">
+            
+            <a style="margin-bottom: 1em" class="btn btn-primary"
+               href="insert-drug.jsp">Cadastrar Fármacos</a>
+            
             <h1>Lista de Fármacos</h1>
             <table class="table table-striped table-sm">
                 <thead>

@@ -4,6 +4,7 @@
     Author     : tio-hecro
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="edu.ucan.medical.dao.DoctorDao"%>
 <%@page import="edu.ucan.medical.model.Doctor"%>
 <%@page import="java.util.List"%>
@@ -17,16 +18,15 @@
         <title>Listas de Medicos</title>
     </head>
     <body>
+        <jsp:include page="../components/admin-header.jsp"></jsp:include>
 <%
         Connection connection = (Connection) request.getAttribute("connection");
         List<Doctor> doctors = new DoctorDao(connection).getAllDoctors();
-%>
-        <jsp:include page="../components/admin-header.jsp"></jsp:include>
         
-<%
         if (doctors != null) {
 %>
-        <div style="margin-top: 1em" class="container">
+        <div style="margin-top: 2em" class="container">
+            <a style="margin-bottom: 1em" class="btn btn-primary" href="insert-doctor.jsp">Cadastrar Medico</a>
             <h1>Lista de Medicos</h1>
             <table class="table table-striped table-sm">
                 <thead>

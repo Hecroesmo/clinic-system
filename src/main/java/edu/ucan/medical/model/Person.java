@@ -5,6 +5,7 @@ import java.io.Serializable;
 /**
  * @author tio-hecro
  */
+
 public class Person implements Serializable {
     private String identifyCardNumber;
     private String firstName;
@@ -18,25 +19,19 @@ public class Person implements Serializable {
 
     public Person() {}
 
-    public Person(String identifyCardNumber, String firstName, String lastName, String phoneNumber) {
+    public Person(String identifyCardNumber) {
+        this.identifyCardNumber = identifyCardNumber;
+    }
+
+    public Person(String identifyCardNumber, String firstName,
+        String lastName, String phoneNumber) 
+    {
         this.identifyCardNumber = identifyCardNumber;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
     }
-
-    public Person(String name, String phoneNumber, Region country,
-        Region province, Region municipality, Region commune, Region neighborhood) 
-    {
-        this.firstName = name;
-        this.phoneNumber = phoneNumber;
-        this.country = country;
-        this.province = province;
-        this.municipality = municipality;
-        this.commune = commune;
-        this.neighborhood = neighborhood;
-    }
-
+  
     public String getIdentifyCardNumber() {
         return identifyCardNumber;
     }

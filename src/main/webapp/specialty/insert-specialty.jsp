@@ -30,8 +30,8 @@
 %>
             <form action="insert-specialty.jsp" method="Post">
                 <div class="mb-3">
-                    <label for="region" class="form-label">Nome</label>
-                    <input type="text" class="form-control" name="name">
+                    <label for="specialty" class="form-label">Nome</label>
+                    <input id="specialty" type="text" class="form-control" name="name">
                 </div>
                 <button type="submit" class="btn btn-primary">Salvar</button>
             </form>

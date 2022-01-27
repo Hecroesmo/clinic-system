@@ -36,8 +36,7 @@ public class PersonDaoTest {
         person.setMunicipality(municipality);
         person.setCommune(commune);
         person.setNeighborhood(neighborhood);
-   
-        
+  
         try 
         {
             Connection connection;

@@ -1,7 +1,6 @@
 package edu.ucan.medical.dao;
 
 import edu.ucan.medical.model.Doctor;
-import edu.ucan.medical.model.Specialty;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -34,6 +33,36 @@ public class DoctorDao {
         } 
         catch (SQLException ex) {
             Logger.getLogger(DoctorDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public Doctor getDoctorByTaxIdentificationNumber(String taxIdentificationNumber) {
+        String sql = "SELECT tax_identification_number,"
+            + " fk_person, first_name, last_name, phone_number,"
+            + " fk_specialty, fk_country, fk_province, fk_municipality,"
+            + " fk_commune, fk_neighborhood FROM doctor"
+            + " JOIN person ON pk_identify_card_number = fk_person"
+            + " WHERE tax_identification_number = ?";
+        
+        try 
+        {
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, taxIdentificationNumber);
+            ResultSet rs = statement.executeQuery();
+            
+            if (rs.next() == false) return null;
+            
+            SpecialtyDao specialtyDao = new SpecialtyDao(connection);
+            RegionDao regionDao = new RegionDao(connection);
+            
+            Doctor doctor = new Doctor();
+            setDoctorsData(doctor, rs, specialtyDao, regionDao);
+            
+            return doctor;
+        } 
+        catch (SQLException ex) {
+            throw new RuntimeException(
+                "Failed to get doctor by tax identification number", ex);
         }
     }
     

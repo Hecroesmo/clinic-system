@@ -1,7 +1,5 @@
 package edu.ucan.medical.model;
 
-import java.io.Serializable;
-
 /**
  * @author tio-hecro
  */
@@ -10,6 +8,10 @@ public class Doctor extends Person {
     private Specialty specialty;
     
     public Doctor() {}
+    
+    public Doctor(String taxIdentificationNumber) {
+        this.taxIdentificationNumber = taxIdentificationNumber;
+    }
 
     public Doctor(String taxIdentificationNumber, Specialty specialty) {
         this.taxIdentificationNumber = taxIdentificationNumber;

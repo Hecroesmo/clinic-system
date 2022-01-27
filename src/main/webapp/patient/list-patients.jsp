@@ -18,16 +18,15 @@
         <title>Listas de Medicos</title>
     </head>
     <body>
+        <jsp:include page="../components/admin-header.jsp"></jsp:include>
 <%
         Connection connection = (Connection) request.getAttribute("connection");
         List<Person> patients = new PatientDao(connection).getAllPatients();
-%>
-        <jsp:include page="../components/admin-header.jsp"></jsp:include>
-        
-<%
+
         if (patients != null) {
 %>
-        <div style="margin-top: 1em" class="container">
+        <div style="margin-top: 2em" class="container">
+            <a style="margin-bottom: 1em" class="btn btn-primary" href="insert-patient.jsp">Cadastrar Paciente</a>
             <h1>Lista de Pacientes</h1>
             <table class="table table-striped table-sm">
                 <thead>

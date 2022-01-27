@@ -1,28 +1,25 @@
 package edu.ucan.medical.model;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Date;
+import java.util.List;
 
 /**
  * @author tio-hecro
  */
+
 public class Consultation implements Serializable {
     private int pkConsultation;
     private Doctor doctor;
     private Person patient;
     private ConsultationType consultationType;
-    private String date;
+    private Date date;
+    private LocalDateTime dateAndTime;
+    private List<Drug> drugs;
     
     public Consultation() {}
-    
-    public Consultation(int pkConsultation, Doctor doctor, Person patient,
-        ConsultationType consultationType, String date) 
-    {
-        this.pkConsultation = pkConsultation;
-        this.doctor = doctor;
-        this.patient = patient;
-        this.consultationType = consultationType;
-        this.date = date;
-    }
 
     public int getPkConsultation() {
         return pkConsultation;
@@ -56,16 +53,34 @@ public class Consultation implements Serializable {
         this.consultationType = consultationType;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
+    public List<Drug> getDrugs() {
+        return drugs;
+    }
+
+    public LocalDateTime getDateAndTime() {
+        return dateAndTime;
+    }
+
+    public void setDateAndTime(LocalDateTime dateAndTime) {
+        this.dateAndTime = dateAndTime;
+    }
+
+    public void setDrugs(List<Drug> drugs) {
+        this.drugs = drugs;
+    }
+    
     @Override
     public String toString() {
-        return "Consultation{" + "pkConsultation=" + pkConsultation + ", doctor=" + doctor + ", patient=" + patient + ", consultationType=" + consultationType + ", date=" + date + '}';
+        return "Consultation{" + "pkConsultation=" + pkConsultation +
+            ", doctor=" + doctor + ", patient=" + patient +
+            ", consultationType=" + consultationType + ", date=" + date + '}';
     }
 }

@@ -25,7 +25,8 @@
 <%
         if (specialties != null) {
 %>
-        <div style="margin-top: 1em" class="container">
+        <div style="margin-top: 2em" class="container">
+            <a style="margin-bottom: 1em" class="btn btn-primary" href="insert-specialty.jsp">Cadastrar Especialidade</a>
             <h1>Lista de Especialidades</h1>
             <table class="table table-striped table-sm">
                 <thead>

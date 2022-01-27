@@ -36,6 +36,31 @@ public class PatientDao {
         }
     }
     
+    public Person getPatientByIdentifyCardNumber (String identifyCardNumber) {
+        String sql = "SELECT person.* FROM person"
+            + " JOIN patient ON pk_identify_card_number = fk_person"
+            + " WHERE fk_person = ?";
+        
+        try 
+        {
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, identifyCardNumber);
+            ResultSet rs = statement.executeQuery();
+            
+            if (rs.next() == false) return null;
+            
+            RegionDao regionDao = new RegionDao(connection);
+            Person patient = new Person();
+            setPatientData(patient, rs, regionDao);
+            
+            return patient;
+        } 
+        catch (SQLException ex) {
+            throw new RuntimeException(
+                "Failed to get a patient by identify card number", ex);
+        }
+    }
+    
     public List<Person> getAllPatients () {
         String sql = "SELECT person.* FROM person"
             + " JOIN patient ON pk_identify_card_number = fk_person";

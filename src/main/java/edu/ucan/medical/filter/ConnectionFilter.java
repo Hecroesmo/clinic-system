@@ -27,8 +27,9 @@ public class ConnectionFilter implements Filter {
         {
             Connection connection;
             connection = new ConnectionFactory(
-                    "jdbc:postgresql://localhost:5432/medical-system",
-                    "postgres", "postgres", "org.postgresql.Driver").getConnection();
+                "jdbc:postgresql://localhost:5432/medical-system",
+                "postgres", "postgres", "org.postgresql.Driver"
+            ).getConnection();
             
             request.setAttribute("connection", connection);
             chain.doFilter(request, response);

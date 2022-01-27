@@ -11,6 +11,10 @@ public class ConsultationType implements Serializable {
     
     public ConsultationType() {}
     
+    public ConsultationType(int pkConsultationType) {
+        this.pkConsultationType = pkConsultationType;
+    }
+    
     public ConsultationType(int pkConsultationType, String description) {
         this.pkConsultationType = pkConsultationType;
         this.description = description;
@@ -34,6 +38,7 @@ public class ConsultationType implements Serializable {
 
     @Override
     public String toString() {
-        return "ConsultationType{" + "pkConsultationType=" + pkConsultationType + ", description=" + description + '}';
+        return "ConsultationType{" + "pkConsultationType=" + pkConsultationType +
+            ", description=" + description + '}';
     }
 }
