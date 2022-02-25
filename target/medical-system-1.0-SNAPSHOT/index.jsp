@@ -45,7 +45,7 @@
                       </span>
                       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonSM">
                           <li><a class="dropdown-item" href="doctor/insert-doctor.jsp">Cadastrar</a></li>
-                          <li><a class="dropdown-item" href="doctor/list-doctor.jsp">Listar</a></li>
+                          <li><a class="dropdown-item" href="doctor/list-doctors.jsp">Listar</a></li>
                       </ul>
                   </li>
                   <li class="nav-item dropdown">
@@ -93,6 +93,14 @@
                           <li><a class="dropdown-item" href="consultation/list-consultations.jsp">Listar</a></li>
                       </ul>
                   </li>
+                  <li class="nav-item dropdown">
+                    <span class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        Queries
+                      </span>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonSM">
+                          <li><a class="dropdown-item" href="exam-query-form.jsp">Exam Query</a></li>
+                      </ul>
+                  </li>
                 </ul>
 
                 <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -107,8 +115,8 @@
                         País
                       </span>
                       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonSM">
-                          <li><a class="dropdown-item" href="region/insert.jsp">Cadastrar</a></li>
-                          <li><a class="dropdown-item" href="region/list.jsp">Listar</a></li>
+                          <li><a class="dropdown-item" href="region/insert-country.jsp">Cadastrar</a></li>
+                          <li><a class="dropdown-item" href="region/list-countries.jsp">Listar</a></li>
                       </ul>
                   </li>
                   <li class="nav-item dropdown">
@@ -116,8 +124,8 @@
                         Provincia
                       </span>
                       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonSM">
-                          <li><a class="dropdown-item" href="region/insert.jsp">Cadastrar</a></li>
-                          <li><a class="dropdown-item" href="region/list.jsp">Listar</a></li>
+                          <li><a class="dropdown-item" href="region/insert-province.jsp">Cadastrar</a></li>
+                          <li><a class="dropdown-item" href="region/list-provinces.jsp">Listar</a></li>
                       </ul>
                   </li>
                   <li class="nav-item dropdown">
@@ -125,8 +133,8 @@
                         Municipio
                       </span>
                       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonSM">
-                          <li><a class="dropdown-item" href="region/insert.jsp">Cadastrar</a></li>
-                          <li><a class="dropdown-item" href="region/list.jsp">Listar</a></li>
+                          <li><a class="dropdown-item" href="region/insert-municipality.jsp">Cadastrar</a></li>
+                          <li><a class="dropdown-item" href="region/list-municipalities.jsp">Listar</a></li>
                       </ul>
                   </li>
                   <li class="nav-item dropdown">
@@ -134,8 +142,8 @@
                         Comuna
                       </span>
                       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonSM">
-                          <li><a class="dropdown-item" href="region/insert.jsp">Cadastrar</a></li>
-                          <li><a class="dropdown-item" href="region/list.jsp">Listar</a></li>
+                          <li><a class="dropdown-item" href="region/insert-commune.jsp">Cadastrar</a></li>
+                          <li><a class="dropdown-item" href="region/list-communes.jsp">Listar</a></li>
                       </ul>
                   </li>
                   <li class="nav-item dropdown">
@@ -143,8 +151,8 @@
                         Bairro
                       </span>
                       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonSM">
-                          <li><a class="dropdown-item" href="region/insert.jsp">Cadastrar</a></li>
-                          <li><a class="dropdown-item" href="region/list.jsp">Listar</a></li>
+                          <li><a class="dropdown-item" href="region/insert-neighborhood.jsp">Cadastrar</a></li>
+                          <li><a class="dropdown-item" href="region/list-neighborhoods.jsp">Listar</a></li>
                       </ul>
                   </li>
                 </ul>

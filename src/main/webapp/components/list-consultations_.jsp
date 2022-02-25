@@ -4,6 +4,7 @@
     Author     : tio-hecro
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="edu.ucan.medical.dao.ConsultationDao"%>
 <%@page import="edu.ucan.medical.model.Consultation"%>
@@ -12,6 +13,7 @@
 <%@page import="java.util.List"%>
 <%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -34,7 +36,8 @@
                         <th>Medico/a</th>
                         <th>Paciente</th>
                         <th>Tipo Consulta</th>
-                        <th>Data</th>
+                        <th>Data & Hora</th>
+                        <th>Receita</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,10 +50,11 @@
                         <td><%= consultation.getPatient().getLastName() %></td>
                         <td><%= consultation.getConsultationType().getDescription() %></td>
                         <td><%= consultation.getDateAndTime() %></td>
+                        <td><a href="/medical-system/mvc?logic=GetPrescriptionByConsultationIdLogic&id=<%= consultation.getPkConsultation() %>">Ver</a></td>
                     </tr>
 <%
                 }
-%>     
+%>
                 </tbody>
             </table>
 <%

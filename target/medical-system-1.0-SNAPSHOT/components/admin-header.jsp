@@ -72,19 +72,19 @@
               </a>
             </li>
             <li>
-              <a href="#" class="nav-link text-white">
+                <a href="<c:url value="/consultation/list-consultations.jsp" />" class="nav-link text-white">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#table"/></svg>
                 Consultas
               </a>
             </li>
             <li>
-              <a href="#" class="nav-link text-white">
+              <a href="<c:url value="/drug/list-drugs.jsp" />" class="nav-link text-white">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#grid"/></svg>
-                Productos
+                Fármacos
               </a>
             </li>
             <li>
-              <a href="#" class="nav-link text-white">
+              <a href="<c:url value="/doctor/list-doctors.jsp" />" class="nav-link text-white">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"/></svg>
                 Medicos
               </a>

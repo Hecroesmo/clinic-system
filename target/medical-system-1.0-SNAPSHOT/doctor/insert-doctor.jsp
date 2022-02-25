@@ -4,6 +4,7 @@
     Author     : tio-hecro
 --%>
 
+<%@page import="edu.ucan.medical.utility.RegionUtility"%>
 <%@page import="edu.ucan.medical.dao.PersonDao"%>
 <%@page import="edu.ucan.medical.model.Person"%>
 <%@page import="edu.ucan.medical.dao.SpecialtyDao"%>
@@ -26,6 +27,8 @@
         <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
     </head>
     <body>
+        <jsp:include page="../components/admin-header.jsp"></jsp:include>
+        
         <jsp:setProperty property="identifyCardNumber" name="doctor"/>
         <jsp:setProperty property="taxIdentificationNumber" name="doctor"/>
         <jsp:setProperty property="phoneNumber" name="doctor"/>
@@ -33,18 +36,20 @@
         <jsp:setProperty property="lastName" name="doctor"/>
 <%  
         Connection connection = (Connection) request.getAttribute("connection");
-        List<Region> countries = new RegionDao(connection).getCountries();
+        
+        List<Region> countries = new RegionDao(connection).getAllRegions(
+            RegionUtility.SELECT_REGION[0],
+            RegionUtility.PK_REGION[0],
+            RegionUtility.FK_REGION[0]
+        );
+        
         List<Specialty> specialties = new SpecialtyDao(connection).getAllSpecialty();
-%>
-        <jsp:include page="../components/admin-header.jsp"></jsp:include>
-        <div style="margin-top: 2em" class="container">
-            <h1>Inserir Medico</h1>
-            
-<%
+
         if (doctor.getIdentifyCardNumber() == null || 
                 doctor.getTaxIdentificationNumber() == null) {
 %>
-
+         <div style="margin-top: 2em" class="container">
+            <h1>Inserir Medico</h1>
             <form action="insert-doctor.jsp" method="Post">
                 <div class="row">
                     <div class="col mb-3">
@@ -156,7 +161,7 @@
             new PersonDao(connection).save(doctor);
             new DoctorDao(connection).save(doctor);
 %>
-            <jsp:forward page="list-doctor.jsp" />
+            <jsp:forward page="list-doctors.jsp" />
 <%
         }
 %>

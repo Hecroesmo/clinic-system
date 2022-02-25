@@ -4,6 +4,7 @@
     Author     : tio-hecro
 --%>
 
+<%@page import="edu.ucan.medical.utility.RegionUtility"%>
 <%@page import="edu.ucan.medical.dao.PatientDao"%>
 <%@page import="edu.ucan.medical.dao.PersonDao"%>
 <%@page import="edu.ucan.medical.model.Person"%>
@@ -30,7 +31,11 @@
         <jsp:setProperty property="lastName" name="patient"/>
 <%  
         Connection connection = (Connection) request.getAttribute("connection");
-        List<Region> countries = new RegionDao(connection).getCountries();
+        List<Region> countries = new RegionDao(connection).getAllRegions(
+            RegionUtility.SELECT_REGION[0], 
+            RegionUtility.PK_REGION[0],
+            RegionUtility.FK_REGION[0]
+        );
 %>
         <jsp:include page="../components/admin-header.jsp"></jsp:include>
         <div style="margin-top: 2em" class="container">

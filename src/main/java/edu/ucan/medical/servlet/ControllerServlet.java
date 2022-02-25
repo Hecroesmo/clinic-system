@@ -27,7 +27,6 @@ public class ControllerServlet extends HttpServlet {
             Logic logic = (Logic) clazz.getDeclaredConstructor().newInstance();
 
             String page = logic.execute(req, resp);
-            System.out.println(page);
             req.getRequestDispatcher(page).forward(req, resp);
         } 
         catch (

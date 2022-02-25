@@ -21,15 +21,15 @@ public class RegionDao {
         this.connection = connection;
     }
     
-    public void saveCountry(Region region) {
-        boolean isCountry = region.getFkRegion() == 0;
-        
-        String sql = "INSERT INTO country (name) VALUES (?)";
-        
+    public void save(Region region, String sql) {    
         try 
         {
             statement = connection.prepareStatement(sql);
             statement.setString(1, region.getName());
+            
+            if (region.getFkRegion() != 0)
+                statement.setInt(2, region.getFkRegion());
+                
             statement.executeUpdate();
         } 
         catch (SQLException ex) {
@@ -37,9 +37,7 @@ public class RegionDao {
         }
     }
     
-    public List<Region> getCountries() {
-        String sql = "SELECT * FROM country";
-        
+    public List<Region> getAllRegions(String sql, String PK_REGION, String FK_REGION) {        
         try 
         {
             statement = connection.prepareStatement(sql);
@@ -49,17 +47,23 @@ public class RegionDao {
             
             List<Region> regions = new ArrayList<>();
             
-            do {                
+            do 
+            {                
                 Region region = new Region();
-                region.setPkRegion(rs.getInt("pk_country"));
+                region.setPkRegion(rs.getInt(PK_REGION));
                 region.setName(rs.getString("name"));
+                
+                if (!FK_REGION.equals("none"))
+                    region.setFkRegion(rs.getInt(FK_REGION));
+                
                 regions.add(region);
-            } while (rs.next());
+            }
+            while (rs.next());
             
             return regions;
         } 
         catch (SQLException ex) {
-            throw new RuntimeException("Fail to get all contries", ex);
+            throw new RuntimeException("Fail to get all regions", ex);
         }
     }
     
